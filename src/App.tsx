@@ -1,33 +1,24 @@
 import './styles/theme.css';
 import './styles/global.css';
-import { Heading } from './components/Heading.tsx';
-import {Container} from "./components/Container.tsx"
-import { TimerIcon } from 'lucide-react';
+
+import { Container } from './components/Container';
+import { Heading } from './components/Heading';
+import { Logo } from './components/Logo';
+import { Menu } from './components/Menu';
+
 
 function App() {
     console.log('oi');
     
     return <>
         <Container>
-            <Heading>Logo</Heading>
+            <Logo />
         </Container>
 
         <Container>
-            <Heading>Menu</Heading>
-        </Container>
-        
-        <Container>
-            <section>
-                Form
-            </section>
-        </Container>
-        
-        <Container>
-            <section>
-                Footer
-            </section>
+            <Menu />
         </Container>
     </>;
 }
 
-export {App}
+export {App};

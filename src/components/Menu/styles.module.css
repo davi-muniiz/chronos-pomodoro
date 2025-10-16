@@ -1,0 +1,38 @@
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+    padding-top: 3.2rem;
+}
+
+.menuLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-flow: column;
+    font-size: 4.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 300ms ease-in-out;
+}
+
+.b1, .b2, .b3, .b4 {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1rem;
+    background-color: var(--primary);
+    cursor: pointer;
+    border: none;
+}
+
+.b1:hover, .b2:hover, .b3:hover, .b4:hover {
+    filter: brightness(80%);
+    transition: all 100ms ease-in-out;
+}
+
+.b1:active, .b2:active, .b3:active, .b4:active {
+    filter: brightness(50%);
+    transition: all 100ms ease-in-out;
+}
