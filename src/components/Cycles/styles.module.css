@@ -1,0 +1,30 @@
+.cycles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    justify-content: center;
+}
+
+.cycleDots {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.cycleDot {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.workTime {
+    background-color: var(--warning);
+}
+
+.shortRest {
+    background-color: var(--primary);
+}
+
+.longRest {
+    background-color: var(--info);
+}
