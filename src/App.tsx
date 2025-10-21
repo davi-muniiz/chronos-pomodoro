@@ -1,55 +1,9 @@
 import './styles/theme.css';
 import './styles/global.css';
+import { Home } from './pages/Home';
+import { NotFound } from './pages/NotFound';
+import { AboutPomodoro } from './pages/AboutPomodoro';
 
-import { Container } from './components/Container';
-import { Heading } from './components/Heading';
-import { Logo } from './components/Logo';
-import { Menu } from './components/Menu';
-import { CountDown } from './components/CountDown';
-import { DefaultInput } from './components/DefaultInput';
-import { Cycles } from './components/Cycles';
-import { DefaultButton } from './components/DefaultButton';
-import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
-import { Footer } from './components/Footer';
-
-
-function App() {
-
-    return <>
-        <Container>
-            <Logo />
-        </Container>
-
-        <Container>
-            <Menu />
-        </Container>
-        <Container>
-            <CountDown />
-        </Container>
-
-        <Container>
-            <form action="" className='form'>
-                <div className="formRow">
-                    <DefaultInput labelText="Text" type='text' id='meuInput' placeholder='Ex: Estudar'></DefaultInput>
-                </div>
-                <div className="formRow">
-                    <p>Nesse ciclo foque por 25 min.</p>
-                </div>
-                
-                <div className="formRow">
-                    <Cycles></Cycles>
-                </div>
-                
-                <div className="formRow">
-                    <DefaultButton icon={< PlayCircleIcon/>}/ >
-                </div>
-            </form>
-        </Container>
-
-        <Container>
-            <Footer></Footer>
-        </Container>
-    </>;
+export function App() {
+    return <Home/>;
 }
-
-export {App};
