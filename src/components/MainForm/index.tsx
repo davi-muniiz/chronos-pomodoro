@@ -3,8 +3,9 @@ import styles from "./styles.module.css";
 import { DefaultButton } from "../DefaultButton";
 import { Cycles } from "../Cycles";
 import { DefaultInput } from "../DefaultInput";
+import type { HomeProps } from "../../pages/Home";
 
-export function MainForm () {
+
     return (
         <form action="" className='form'>
                 <div className="formRow">
