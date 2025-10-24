@@ -1,15 +1,29 @@
 import { PlayCircleIcon } from "lucide-react";
-import styles from "./styles.module.css";
 import { DefaultButton } from "../DefaultButton";
 import { Cycles } from "../Cycles";
 import { DefaultInput } from "../DefaultInput";
-import type { HomeProps } from "../../pages/Home";
+import { useState } from "react";
+
+
+export function MainForm() {
+
+    const [taskName, setTaskName] = useState();
+
+    function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+    };
 
 
     return (
-        <form action="" className='form'>
+        <form onSubmit={handleCreateNewTask} action="" className='form'>
                 <div className="formRow">
-                    <DefaultInput labelText="Text" type='text' id='meuInput' placeholder='Ex: Estudar'></DefaultInput>
+                    <DefaultInput 
+                    labelText="Text" 
+                    type='text' 
+                    id='meuInput' 
+                    placeholder='Ex: Estudar' 
+                    value={taskName} 
+                    onChange={e => setTaskName(e.target.value)}></DefaultInput>
                 </div>
                 <div className="formRow">
                     <p>Nesse ciclo foque por 25 min.</p>
