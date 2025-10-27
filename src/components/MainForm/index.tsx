@@ -79,10 +79,14 @@ export function MainForm() {
                 <div className="formRow">
                     <p>Nesse ciclo foque por 25 min.</p>
                 </div>
+
+                {state.currentCycle > 0 && (
                 
-                <div className="formRow">
-                    <Cycles></Cycles>
-                </div>
+                    <div className="formRow">
+                        <Cycles></Cycles>
+                    </div>
+
+                )}
                 
                 <div className="formRow">
                     <DefaultButton icon={< PlayCircleIcon/>}/ >
