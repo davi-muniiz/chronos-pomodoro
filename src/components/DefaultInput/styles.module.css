@@ -1,11 +1,11 @@
 .input {
-    background: transparent;
+    background: transparent !important;
     border: none;
     text-align: center;
     font-size: 1.8rem;
     padding: 1rem;
     color: var(--default);
-    border-bottom: 0.2rem solid transparent;
+    border-bottom: 0.2rem solid var(--primary);
     outline: none;
     transition: all 300ms ease-in-out;
 }
@@ -19,4 +19,25 @@
     font-style: italic;
     font-size: 1.4rem;
     color: var(--gray-500);
+}
+
+.input:disabled {
+    color: var(--gray-500);
+    border-bottom: 0.2rem solid var(--gray-500);
+    transition: all 300ms ease-in-out;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  background-color: transparent !important;
+  -webkit-text-fill-color: var(--white); /* ajuste conforme o tema */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.input:-webkit-autofill:disabled {
+    -webkit-text-fill-color: var(--gray-500);
+    transition: all 300ms ease-in-out;
 }

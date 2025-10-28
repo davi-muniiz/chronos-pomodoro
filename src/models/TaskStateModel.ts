@@ -2,6 +2,9 @@ import type { TaskModel } from "./TaskModel";
 
 // Estado -> Componente -> Filhos
 
+// Tudo que envolve a task que está acontecendo.
+// Algumas configs são alteráveis; aqui declara-se somente os tipos.
+
 export type TaskStateModel = {
     tasks: TaskModel[]; // histórico, MainForm
     secondsRemaining: number; // CountDown, Histórico, Button, MainForm, Home
