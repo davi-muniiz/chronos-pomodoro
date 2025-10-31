@@ -2,17 +2,17 @@ import { PlayCircleIcon, StopCircleIcon } from "lucide-react";
 import { DefaultButton } from "../DefaultButton";
 import { Cycles } from "../Cycles";
 import { DefaultInput } from "../DefaultInput";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useTaskContext } from "../../contexts/TaskContext/UseTaskContext";
 import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import type { TaskModel } from "../../models/TaskModel";
-import { formatSecToMin } from "../../utils/formatSecToMin";
+import { TaskActionsTypes } from "../../contexts/TaskContext/taskAction";
 
 
 export function MainForm() {
 
-    const { state, setState } = useTaskContext();
+    const { state, dispatch } = useTaskContext();
 
     // const [taskName, setTaskName] = useState(); Usado quando quer capturar em tempo real
     const taskNameInput = useRef<HTMLInputElement>(null); // Usado quando quer validar depois do envio
@@ -54,38 +54,12 @@ export function MainForm() {
         };
         console.log(newTask);
 
-        // (ver linha 51) Multiplica por 60 para ter o segundos.
-        const secondsRemaining = newTask.duration * 60;
 
-        // Garante o uso do estado anterior mais atualizado (fornecido pelo React)
-        // Permite atualizar o estado de forma segura, mesmo com várias atualizações seguidas.
-        // Exemplo: se o valor atual é 1 e deve somar +1 a cada evento,
-        // prevState garante que sempre será usado o valor correto do estado anterior.
-        setState(prevState =>  { return {
-            ...prevState,
-            config: {...prevState.config},
-            activeTask: newTask,
-            currentCycle: nextCycle,
-            secondsRemaining,
-            formatedSecondsRemaining: formatSecToMin(secondsRemaining),
-            tasks: [...prevState.tasks, newTask],
-        };
-    });
+        dispatch({type: TaskActionsTypes.START_TASK, payload: newTask});
     }
 
-    function handleInterruptTask(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-
-        e.preventDefault() // Impede que o form. seja enviado.
-
-        setState(prevState =>  { return {
-            ...prevState,
-            activeTask: null,
-            currentCycle: 0,
-            secondsRemaining: 0,
-            formatedSecondsRemaining: "00:00",
-        };
-    
-    });
+    function handleInterruptTask() {
+        dispatch({type: TaskActionsTypes.INTERRUPT_TASK})
     }
 
     return (
