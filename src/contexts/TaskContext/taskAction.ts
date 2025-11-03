@@ -7,6 +7,21 @@
 
 import type { TaskModel } from "../../models/TaskModel"
 
+// Define os tipos de ações (actions) que podem ser disparadas no taskReducer.
+//
+// 🔹 O enum TaskActionsTypes lista todos os tipos possíveis de ação:
+//    - START_TASK: inicia uma nova tarefa.
+//    - INTERRUPT_TASK: interrompe a tarefa atual antes de finalizar.
+//    - RESET_STATE: reseta completamente o estado para o valor inicial.
+//
+// 🔹 O tipo TaskActionsModel descreve o formato (shape) de cada ação possível:
+//    - A ação START_TASK carrega um 'payload' com os dados da nova tarefa (TaskModel).
+//    - As ações INTERRUPT_TASK e RESET_STATE não precisam de payload, pois
+//      apenas sinalizam ao reducer o que deve ser feito.
+//
+// Essa tipagem garante que o TypeScript valide automaticamente o tipo e
+// os dados de cada ação, evitando erros ao despachar (dispatch) ações incorretas.
+
 export enum TaskActionsTypes {
     START_TASK = 'START_TASK',
     INTERRUPT_TASK = 'INTERRUPT_TASK',

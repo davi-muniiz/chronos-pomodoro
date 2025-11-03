@@ -22,6 +22,13 @@ export function MainForm() {
     const nextCycleType = getNextCycleType(nextCycle);
     console.log(nextCycleType);
 
+    // Dica sobre o que fazer em cada ciclo.
+    const tipsForActiveTask = {
+        workTime: <span> Foque por {state.config.workTime} minutos. </span>,
+        shortRest: <span> Descanse por {state.config.shortRest} minutos. </span>,
+        longRest: <span> Descanse por {state.config.longRest} minutos. </span>
+    }
+
     // Função que lida com a criação das tasks.
     function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
 
@@ -54,8 +61,10 @@ export function MainForm() {
         };
         console.log(newTask);
 
-
+        // substituto de useState -> dispatch
+        // recebe o tipo, e se necessário o payload.
         dispatch({type: TaskActionsTypes.START_TASK, payload: newTask});
+
     }
 
     function handleInterruptTask() {
@@ -66,25 +75,29 @@ export function MainForm() {
         <form onSubmit={handleCreateNewTask} action="" className='form'>
                 <div className="formRow">
                     <DefaultInput 
-                    labelText={
-                        state.activeTask?.name === undefined && (
-                            "Digite uma Task"
-                        )|| state.activeTask?.name !== undefined && (
-                            (state.activeTask?.name)
-                        )}
-                    type='text' 
-                    id='meuInput' 
-                    placeholder='Ex: Estudar' 
-                    // value={taskName}  // tempo real
-                    // onChange={e => setTaskName(e.target.value)} // tempo real
-                    ref={taskNameInput} // depois do envio
-                    disabled={state.activeTask !== null}
+                        labelText={
+                            state.activeTask?.name === undefined && (
+                                "Digite uma Task"
+                            )|| state.activeTask?.name !== undefined && (
+                                (state.activeTask?.name)
+                            )}
+                        type='text' 
+                        id='meuInput' 
+                        placeholder='Ex: Estudar' 
+                        // value={taskName}  // tempo real
+                        // onChange={e => setTaskName(e.target.value)} // tempo real
+                        ref={taskNameInput} // depois do envio
+                        disabled={state.activeTask !== null}
                     /> 
                     
                 </div>
-                <div className="formRow">
-                    <p>Nesse ciclo foque por 25 min.</p>
-                </div>
+
+                {state.activeTask && (
+                    <div className="formRow">
+                        {!!state.activeTask && tipsForActiveTask[state.activeTask.type]}
+                        {!state.activeTask && tipsForActiveTask[nextCycleType]}
+                    </div>
+                )}
 
                 {state.currentCycle > 0 && (
                 
