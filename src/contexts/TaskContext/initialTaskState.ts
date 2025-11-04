@@ -10,8 +10,8 @@ export const initialTaskState: TaskStateModel = {
     activeTask: null,
     currentCycle: 0,
     config: { 
-        workTime: 25,
-        shortRest: 5,
-        longRest: 25,
+        workTime: 1,
+        shortRest: 1,
+        longRest: 1,
     },
 };
