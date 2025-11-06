@@ -1,0 +1,28 @@
+import { Bounce, ToastContainer } from "react-toastify";
+
+type MessagesContainerProps = {
+  children: React.ReactNode;
+}
+
+export function MessageContainer({children}: MessagesContainerProps) {
+    return (
+      <>  
+
+        {children}  
+
+        <ToastContainer
+                position="top-center"
+                autoClose={10000}
+                hideProgressBar={true}
+                newestOnTop={false}
+                closeOnClick={true}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme = "light"
+                transition = {Bounce}
+            />
+      </>
+      
+    )}

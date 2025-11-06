@@ -8,6 +8,7 @@ import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import type { TaskModel } from "../../models/TaskModel";
 import { TaskActionsTypes } from "../../contexts/TaskContext/taskAction";
+import { showMessage } from "../../adapters/showMessage";
 
 
 export function MainForm() {
@@ -33,6 +34,7 @@ export function MainForm() {
     function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
 
         event.preventDefault();
+        showMessage.dismiss();
 
         // Se não há taskName algum, já retorna.
         if (taskNameInput.current === null) return;
@@ -43,7 +45,7 @@ export function MainForm() {
 
         // Alerta sobre o erro (ver linha 31).
         if (!taskName) {
-            alert("Digite o nome da Task");
+            showMessage.warn("Digite o nome da Task");
 
             return;
         };
@@ -65,10 +67,13 @@ export function MainForm() {
         // recebe o tipo, e se necessário o payload.
         dispatch({type: TaskActionsTypes.START_TASK, payload: newTask});
 
+        showMessage.success("Task Iniciada com Sucesso!");
+
     }
 
     function handleInterruptTask() {
         dispatch({type: TaskActionsTypes.INTERRUPT_TASK})
+        showMessage.warning("Task Interrompida.");
     }
 
     return (

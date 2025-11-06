@@ -21,10 +21,14 @@
 .b1, .b2, .b3, .b4 {
     width: 5rem;
     height: 5rem;
-    border-radius: 1rem;
     background-color: var(--primary);
     cursor: pointer;
     border: none;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.7rem;
 }
 
 .b1:hover, .b2:hover, .b3:hover, .b4:hover {
