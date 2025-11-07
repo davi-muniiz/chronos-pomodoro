@@ -14,6 +14,7 @@ import { showMessage } from "../../adapters/showMessage";
 export function MainForm() {
 
     const { state, dispatch } = useTaskContext();
+    const lastTaskName = state.tasks[state.tasks.length - 1]?.name || "";
 
     // const [taskName, setTaskName] = useState(); Usado quando quer capturar em tempo real
     const taskNameInput = useRef<HTMLInputElement>(null); // Usado quando quer validar depois do envio
@@ -93,6 +94,7 @@ export function MainForm() {
                         // onChange={e => setTaskName(e.target.value)} // tempo real
                         ref={taskNameInput} // depois do envio
                         disabled={state.activeTask !== null}
+                        defaultValue={lastTaskName}
                     /> 
                     
                 </div>

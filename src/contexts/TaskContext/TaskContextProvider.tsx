@@ -5,6 +5,7 @@ import { taskReducer } from "./taskReducer";
 import { TimerWorkerManager } from "../../workers/timerWorkerManager";
 import { TaskActionsTypes } from "./taskAction";
 import { loadBeep } from "../../utils/loadBeep";
+import type { TaskStateModel } from "../../models/TaskStateModel";
 
 type TaskContextProviderProps = {
     children: React.ReactNode
@@ -14,7 +15,20 @@ type TaskContextProviderProps = {
 // Por isso, usa-se state e setState como param. para as childrens.
 
 export function TaskContextProvider({children}: TaskContextProviderProps) {
-    const [state, dispatch] = useReducer(taskReducer, initialTaskState);
+    const [state, dispatch] = useReducer(taskReducer, initialTaskState, () => {
+        const storedStateAsJSON = localStorage.getItem("state");
+
+        if (storedStateAsJSON === null) return initialTaskState;
+
+        const parsedStoragedState = JSON.parse(storedStateAsJSON) as TaskStateModel;
+
+        return {...parsedStoragedState,
+            activeTask: null,
+            secondsRemaining: 0,
+            formatedSecondsRemaining: "00:00",
+        };
+    })
+
     const playBeepRef = useRef<ReturnType<typeof loadBeep> | null>(null);
 
 
@@ -50,10 +64,15 @@ export function TaskContextProvider({children}: TaskContextProviderProps) {
     // Usa o state como sinal para parar o timer.
     // Se activeTask !== true -> Significa que -> Task foi interrompida.
     useEffect(() => {
+
+        localStorage.setItem("state", JSON.stringify(state));
+
         if (!state.activeTask) {
             console.log("worker terminado por falta de active task");
             worker.terminate();
         } 
+
+        document.title = `${state.formatedSecondsRemaining} - Chronos Pomodoro`;
 
 
         worker.postMessage(state);
