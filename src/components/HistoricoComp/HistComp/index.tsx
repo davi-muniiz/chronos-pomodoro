@@ -10,7 +10,6 @@ import { sortTasks, type SortTasksOptions } from "../../../utils/sortTasks"
 import { useEffect, useState } from "react"
 import { TaskActionsTypes } from "../../../contexts/TaskContext/taskAction"
 import { GenericHTML } from "../../GenericHTML"
-import { Dialog } from "../../Dialog"
 import { toast } from "react-toastify"
 import { showMessage } from "../../../adapters/showMessage"
 

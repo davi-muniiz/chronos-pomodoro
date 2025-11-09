@@ -82,11 +82,10 @@ export function MainForm() {
                 <div className="formRow">
                     <DefaultInput 
                         labelText={
-                            state.activeTask?.name === undefined && (
-                                "Digite uma Task"
-                            )|| state.activeTask?.name !== undefined && (
-                                (state.activeTask?.name)
-                            )}
+                            state.activeTask?.name
+                                ? state.activeTask.name
+                                : "Digite uma Task"
+                            }
                         type='text' 
                         id='meuInput' 
                         placeholder='Ex: Estudar' 

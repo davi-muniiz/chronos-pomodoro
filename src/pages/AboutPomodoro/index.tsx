@@ -2,8 +2,13 @@ import { Container } from '../../components/Container';
 import { GenericHTML } from "../../components/GenericHTML"
 import { Heading } from '../../components/Heading';
 import { MainTemplate } from '../../../templates/MainTemplate';
+import { useEffect } from 'react';
 
 export function AboutPomodoro() {
+  useEffect(() => {
+    document.title = 'A Técnica Pomodoro - Chronos Pomodoro';
+  }, []);
+
   return (
     <MainTemplate>
       <Container>

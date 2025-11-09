@@ -3,6 +3,7 @@ import { CountDown } from "../../components/CountDown"
 import { MainForm } from "../../components/MainForm"
 import { MainTemplate} from "../../../templates/MainTemplate"
 import type { TaskStateModel } from "../../models/TaskStateModel"
+import { useEffect } from "react"
 
 export type HomeProps = {
     state: TaskStateModel,
@@ -10,6 +11,10 @@ export type HomeProps = {
 };
 
 export function Home() {
+
+    useEffect(() => {
+        document.title = 'Chronos Pomodoro';
+      }, []);
 
     return (
         <MainTemplate>
