@@ -6,6 +6,7 @@
 // payload <- os dados extras enviados junto com a action, se necessário para atualizar o estado.
 
 import type { TaskModel } from "../../models/TaskModel"
+import type { TaskStateModel } from "../../models/TaskStateModel";
 
 // Define os tipos de ações (actions) que podem ser disparadas no taskReducer.
 //
@@ -28,6 +29,7 @@ export enum TaskActionsTypes {
     RESET_STATE = 'RESET_STATE',
     INIT_COUNTER = 'INIT_COUNTER',
     COMPLETE_TASK = "COMPLETE_TASK",
+    SET_CONFIG = "SET_CONFIG",
 };
 
 export type TaskActionsModel = 
@@ -43,4 +45,7 @@ export type TaskActionsModel =
     payload: {secondsRemaining: number},
 } | {
     type: TaskActionsTypes.COMPLETE_TASK,
+} | {
+    type: TaskActionsTypes.SET_CONFIG,
+    payload: TaskStateModel,
 };

@@ -61,6 +61,13 @@ export function taskReducer(state: TaskStateModel, action: TaskActionsModel) :Ta
                 })
             };
         }
+
+        case TaskActionsTypes.SET_CONFIG: {
+            return {
+                ...state,
+                config: action.payload.config,
+            };
+        }
     }
 
 

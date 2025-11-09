@@ -1,0 +1,25 @@
+.formRow {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.formRow > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+div.buttonContainer {
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+  margin: 0 auto;
+  align-items: center;
+  padding-top: 2rem;
+}
