@@ -107,4 +107,3 @@ Este projeto foi desenvolvido seguindo o curso ministrado pelo professor Otávio
 Desenvolvedor: Davi Muniz
 
 Repositório: https://github.com/davi-muniiz/chronos-pomodoro
-
