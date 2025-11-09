@@ -1,5 +1,5 @@
 .formRow {
-  padding-top: 4rem;
+  padding-top:1rem;
   padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
@@ -15,11 +15,15 @@
   gap: 0.5rem;
 }
 
-div.buttonContainer {
+.formRow div svg {
+  align-self: center;
+}
+
+.buttonContainer {
   display: flex;
   justify-content: center;
-  max-width: 50%;
   margin: 0 auto;
+  gap: 2rem;
   align-items: center;
-  padding-top: 2rem;
+  width: 100%;
 }

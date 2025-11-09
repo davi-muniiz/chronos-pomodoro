@@ -46,9 +46,10 @@ export function ConfigComp() {
         <form className={styles.formRow} action="" onSubmit={handleChangeConfig}>
           <div>
             <DefaultInput
+              style={{ maxWidth: '75%', alignSelf: 'center' }}
               placeholder="Ex: 30"
               labelText="Tempo de Foco"
-              type="text"
+              type="number"
               id="focusTime"
               defaultValue={state.config.workTime}
               ref={configInputs}
@@ -57,9 +58,10 @@ export function ConfigComp() {
 
           <div>
             <DefaultInput
+              style={{ maxWidth: '75%', alignSelf: 'center' }}
               placeholder="Ex: 5"
               labelText="Tempo de Pausa Curta"
-              type="text"
+              type="number"
               id="shortBreakTime"
               defaultValue={state.config.shortRest}
               ref={configInputs}
@@ -68,9 +70,10 @@ export function ConfigComp() {
 
           <div>
             <DefaultInput 
+              style={{ maxWidth: '75%', alignSelf: 'center' }}
               placeholder="Ex: 15"
               labelText="Tempo de Pausa Longa"
-              type="text"
+              type="number"
               id="longBreakTime"
               defaultValue={state.config.longRest}
               ref={configInputs}

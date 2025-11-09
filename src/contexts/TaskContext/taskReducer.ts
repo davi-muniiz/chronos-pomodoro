@@ -1,6 +1,7 @@
 import type { TaskStateModel } from "../../models/TaskStateModel";
 import { formatSecToMin } from "../../utils/formatSecToMin";
 import { getNextCycle } from "../../utils/getNextCycle";
+import { initialTaskState } from "./initialTaskState";
 import { TaskActionsTypes, type TaskActionsModel } from "./taskAction";
 
 export function taskReducer(state: TaskStateModel, action: TaskActionsModel) :TaskStateModel {
@@ -36,7 +37,7 @@ export function taskReducer(state: TaskStateModel, action: TaskActionsModel) :Ta
             };
         }
         case TaskActionsTypes.RESET_STATE: {
-            return state;
+            return {...initialTaskState};
         }
 
         case TaskActionsTypes.INIT_COUNTER: {
