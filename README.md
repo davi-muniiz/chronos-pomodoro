@@ -108,4 +108,3 @@ Desenvolvedor: Davi Muniz
 
 Repositório: https://github.com/davi-muniiz/chronos-pomodoro
 
-Se quiser que eu inclua badges, imagens, ou traduções adicionais (ex.: inglês), diga o que prefere e eu atualizo o README.
